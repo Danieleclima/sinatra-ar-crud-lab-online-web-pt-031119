@@ -43,5 +43,10 @@ class ApplicationController < Sinatra::Base
     @article.save
     redirect "/articles/#{@article.id}"
   end
+  
+  delete '/articles/:id' do
+    @article = Article.find(params[:id])
+    @Article.delete
+  end
 
 end
