@@ -7,11 +7,6 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-  
-  patch '/articles/:id' do
-    @article = Article.find(params[:id])
-    @article.update(params)
-  end
 
   get '/' do
   end
@@ -39,6 +34,11 @@ class ApplicationController < Sinatra::Base
   get '/articles/:id/edit' do
     @article = Article.find(params[:id])
     erb :edit
+  end
+  
+  patch '/articles/:id' do
+    @article = Article.find(params[:id])
+    @article.update(params)
   end
 
 end
